@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+    name: my-crt
+    namespace: default # choose your namespace
+spec:
+    secretName: my-crt-secret
+    issuerRef:
+      name: cert-manager-issuer
+      kind: ClusterIssuer
+      group: cert-manager.io
+    dnsNames: # your dnsNames
+    - "ide-sinosig.one"
+    - "*.ide-sinosig.one"
+    - "*.ws.ide-sinosig.one"
