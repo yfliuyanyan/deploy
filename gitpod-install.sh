@@ -33,15 +33,15 @@ which dig
 
 # Install cert-manager-webhook-dnspod using Helm with custom options.
 # git clone --depth 1 https://github.com/qqshfox/cert-manager-webhook-dnspod.git# helm install --name cert-manager-webhook-dnspod ./deploy/cert-manager-webhook-dnspod \
-      --namespace cert-manager \
-      --set groupName=<GROUP_NAME> \
-      --set secrets.apiID=<DNSPOD_API_ID>,secrets.apiToken=<DNSPOD_API_TOKEN> \
-      --set clusterIssuer.enabled=true,clusterIssuer.email=<EMAIL_ADDRESS>
+#      --namespace cert-manager \
+#      --set groupName=<GROUP_NAME> \
+#      --set secrets.apiID=<DNSPOD_API_ID>,secrets.apiToken=<DNSPOD_API_TOKEN> \
+#      --set clusterIssuer.enabled=true,clusterIssuer.email=<EMAIL_ADDRESS>
 
 # create cloudflare-token-secret
-k apply -f cloudflare-token-secret.yaml
+k apply -f https://raw.githubusercontent.com/yfliuyanyan/deploy/main/cloudflare-token-secret.yaml
 # create cert-manager-issuer
-k apply -f cert-manager-issuer.yaml
+k apply -f https://raw.githubusercontent.com/yfliuyanyan/deploy/main/cert-manager-issuer.yaml
 
 #Check the generated ClusterIssuer. If the “READY” state keeps False, describe the ClusterIssuer to see if there is an exception.
 k get ClusterIssuer -A
@@ -49,7 +49,7 @@ k get ClusterIssuer -A
 #k describe ClusterIssuer cert-manager-webhook-dnspod-cluster-issuer -n cert-manager
 
 #Create a Certificate.
-k apply -f cert.yaml
+k apply -f https://raw.githubusercontent.com/yfliuyanyan/deploy/main/cert.yaml
 #Wait for the certificate’s “READY” state to become True (could be minutes).
 k get cert -A
 
