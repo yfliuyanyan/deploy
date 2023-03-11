@@ -15,6 +15,8 @@ alias k="k3s kubectl"
 k create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/tigera-operator.yaml
 k create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/custom-resources.yaml
 
+sleep 10
+
 # check node status
 k get node -owide
 
@@ -62,10 +64,18 @@ k describe cert my-crt -n cert-manager
 #dump certificates if you need
 #k get secret mytest1111-cloud-crt-secret -n cert-manager -o jsonpath='{.data.tls\.crt}' | base64 -d
 
+# install nginx
+# apt install nginx-full
+# vi /etc/nginx/nginx.conf
+# nginx -s reload
+# TODO test ufw necessary or not
+# ufw allow 8900
+# ufw reload
+
 # Install Gitpod
 #Install kots plugin & install Gitpod using kots.
 
-curl https://kots.io/install | sh -
+curl https://kots.io/install  | bash
 k kots install gitpod
 
 #Admin-console listened on localhost:8800 only, so setup an Nginx server to proxy the requests.
