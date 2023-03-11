@@ -11,7 +11,7 @@ spec:
     solvers:
     - dns01:
         cloudflare:
-          apiTokenSecretRef:
           email: liouyanyan9@126.com
+          apiTokenSecretRef:
             name: cloudflare-api-token-secret
             key: api-token
