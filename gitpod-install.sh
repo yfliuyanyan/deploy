@@ -51,6 +51,9 @@ k get ClusterIssuer -A
 #Create a Certificate.
 k apply -f https://raw.githubusercontent.com/yfliuyanyan/deploy/main/cert.yaml
 #Wait for the certificate’s “READY” state to become True (could be minutes).
+echo "sleep to wait 30 seconds..."
+sleep 30
+echo "wake up to work"
 k get cert -A
 
 # Check and validate the certificate (optional). tls.key / tls.crt can be found in secret my-crt-secret
@@ -62,7 +65,7 @@ k describe cert my-crt -n cert-manager
 # Install Gitpod
 #Install kots plugin & install Gitpod using kots.
 
-curl https://kots.io/install | bash
+curl https://kots.io/install | sh -
 k kots install gitpod
 
 #Admin-console listened on localhost:8800 only, so setup an Nginx server to proxy the requests.
