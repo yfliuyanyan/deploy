@@ -1,4 +1,11 @@
+
+k apply -f https://raw.githubusercontent.com/yfliuyanyan/deploy/main/k3s-dashboard/recommend.yaml
+k apply -f https://raw.githubusercontent.com/yfliuyanyan/deploy/main/k3s-dashboard/dashborad-admin-rabc.yaml
+
+sudo k3s kubectl -n kubernetes-dashboard create token admin-user
+
 #获取访问token
 kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
+
 #访问dashboard
 https://139.180.156.55:31001/
