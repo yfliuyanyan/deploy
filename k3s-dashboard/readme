@@ -1,0 +1,4 @@
+#获取访问token
+kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
+#访问dashboard
+https://139.180.156.55:31001/
