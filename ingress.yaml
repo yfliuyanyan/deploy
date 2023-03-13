@@ -5,7 +5,7 @@ items:
   metadata:
     annotations:
       nginx.ingress.kubernetes.io/backend-protocol: HTTPS
-    name: ide-sinosig
+    name: ide-lyy
     namespace: gitpod
   spec:
     defaultBackend:
@@ -15,7 +15,7 @@ items:
           number: 443
     ingressClassName: nginx
     rules:
-    - host: ide-sinosig.one
+    - host: ide-lyy.one
       http:
         paths:
         - backend:
@@ -26,7 +26,7 @@ items:
           pathType: ImplementationSpecific
     tls:
     - hosts:
-      - ide-sinosig.one
+      - ide-lyy.one
       secretName: https-certificates
   status:
     loadBalancer:
