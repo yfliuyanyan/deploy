@@ -10,6 +10,6 @@ spec:
       kind: ClusterIssuer
       group: cert-manager.io
     dnsNames: # your dnsNames
-    - "ide-sinosig.one"
-    - "*.ide-sinosig.one"
-    - "*.ws.ide-sinosig.one"
+    - "ide-lyy.one"
+    - "*.ide-lyy.one"
+    - "*.ws.ide-lyy.one"
